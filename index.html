@@ -1,0 +1,18 @@
+<script src="./MyPromise.js"></script>
+
+<script>
+    function fetchApi() {
+        return new MyPromise((res, rej) => {
+            setTimeout(() => {
+                res('GELDİ')
+            }, 2000)
+        })
+    }
+
+    fetchApi()
+        .then((value) => {
+            alert(value)
+        })
+        .catch((err)=> console.error(err))
+
+</script>
