@@ -4,15 +4,13 @@
     function fetchApi() {
         return new MyPromise((res, rej) => {
             setTimeout(() => {
-                res('GELDİ')
+                res('RESOLVED')
             }, 2000)
         })
     }
 
     fetchApi()
-        .then((value) => {
-            alert(value)
-        })
-        .catch((err)=> console.error(err))
+        .then((value) => alert(value))
+        .catch((err) => console.error(err))
 
 </script>

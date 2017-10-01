@@ -1,10 +1,10 @@
 class MyPromise {
     constructor(func) {
         this.promiseChain = []
-        
+
         this.onResolve = this.onResolve.bind(this)
         this.onReject = this.onReject.bind(this)
-
+      
         func(this.onResolve, this.onReject)
     }
 
@@ -12,7 +12,7 @@ class MyPromise {
         let storedValue = value
 
         try {
-            for(const thenFunc of this.promiseChain){
+            for (const thenFunc of this.promiseChain) {
                 storedValue = thenFunc(storedValue)
             }
         } catch (error) {
@@ -25,7 +25,7 @@ class MyPromise {
         this.errFunc(err)
     }
 
-    catch(func){
+    catch(func) {
         this.errFunc = func
         return this
     }
